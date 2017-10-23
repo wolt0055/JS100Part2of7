@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Part 2 of 7</title>
+    <!--
+---------------- REVISIONS for Part 2 ------------------
+    -Updated first Alert to generalize the project name (versus number)
+    -Updated name prompt to check for a valid entry
+
+--------------------------------------------------------
+    // -->
+  </head>
+  <body>
+    <!-- Create a container for the minefield -->
+    <div id="minefieldContainer">
+    </div>
+
+    <script type="text/javascript">
+      //initial variable definitions
+      var validName = false;
+      var validFieldWidth = false;
+      var minefieldWidth = 0;
+
+      //Don't allow the user to continue until a valid name has been created.
+      while(!validName){
+        //prompt user for their name and assign it to the variable 'name'
+        var name = prompt("Greetings! Enter your name:");
+        //Check to make sure characters were entered or clicking 'cancel' did not assign a value of "null" to the name
+        if(name.length < 1 || name == "null"){
+          alert("Seems we have a failure to provide an adequate name...try again");
+        } else{
+          //display an alert box with the welcome message including the name entered in the prompt
+          alert("Hello and welcome to the Minesweeper Clone Project, " + name + ".");
+          validName = true;
+        }
+      }
+
+      //Establish the mindfield width, defined by the user
+      while(!validFieldWidth){
+        minefieldWidth = prompt("How wide should our field be? Minimum width must be 5.");
+        if(minefieldWidth < 5){
+          minefieldWidth = alert("You need to enter a value greater than or equal to 5. Try again.");
+        }
+        else{
+          alert("The field width will be: " + minefieldWidth);
+          validFieldWidth = true;
+        }
+      }
+      //add a zero into the page container for each space of minefieldWidth entered by the user.
+      for(var i = 0; i < minefieldWidth; i++){
+        document.getElementById("minefieldContainer").innerHTML += 0;
+      }
+
+    </script>
+  </body>
+</html>
